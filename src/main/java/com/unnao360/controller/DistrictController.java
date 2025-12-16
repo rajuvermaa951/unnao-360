@@ -9,26 +9,26 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.unnao360.entity.District;
-import com.unnao360.repository.DistrictRepository;
+import com.unnao360.service.DistrictService;
 
 @RestController
 @RequestMapping("/districts")
 public class DistrictController {
 	
-	private final  DistrictRepository districtRepository;
-	public DistrictController(DistrictRepository districtRepository)
+	private final  DistrictService districtService;
+	public DistrictController(DistrictService districtService)
 	{
-		this.districtRepository=districtRepository;
+		this.districtService=districtService;
 	}
 	@PostMapping
 	public District add(@RequestBody District district)
 	{
-		return districtRepository.save(district);
+		return districtService.createDistrict(district);
 	}
 	@GetMapping
 	public List<District> getAll()
 	{
-		return districtRepository.findAll();
+		return districtService.getAllDistrict();
 	}
 
 }
