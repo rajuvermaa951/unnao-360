@@ -8,7 +8,7 @@ public class Unnao360ApiApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(Unnao360ApiApplication.class, args);
-		System.err.println("Your App is running now ....");
+		System.out.println("Your app is running now ");
 	}
 
 }
