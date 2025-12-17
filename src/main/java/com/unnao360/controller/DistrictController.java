@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.unnao360.dto.DistrictDto;
 import com.unnao360.entity.District;
 import com.unnao360.service.DistrictService;
 
@@ -26,7 +27,7 @@ public class DistrictController {
 		return districtService.createDistrict(district);
 	}
 	@GetMapping
-	public List<District> getAll()
+	public List<DistrictDto> getAll()
 	{
 		return districtService.getAllDistrict();
 	}

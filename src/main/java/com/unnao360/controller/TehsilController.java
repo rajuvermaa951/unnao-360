@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.unnao360.dto.TehsilDto;
 import com.unnao360.entity.Tehsil;
 import com.unnao360.service.TehsilService;
 
@@ -29,7 +30,7 @@ public Tehsil add(@PathVariable long districtId,
 	return tehsilService.createTehsil(districtId, tehsil);
 }
 @GetMapping
-public List<Tehsil> getAll(@PathVariable long districtId)
+public List<TehsilDto> getAll(@PathVariable long districtId)
 {
 	return tehsilService.getTehsilByDistrict(districtId);
 }

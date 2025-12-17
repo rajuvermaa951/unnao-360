@@ -4,8 +4,10 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.unnao360.dto.TehsilDto;
 import com.unnao360.entity.District;
 import com.unnao360.entity.Tehsil;
+import com.unnao360.mapper.TehsilMapper;
 import com.unnao360.repository.DistrictRepository;
 import com.unnao360.repository.TehsilRepository;
 @Service
@@ -28,9 +30,15 @@ public class TehsilServiceImpl implements TehsilService {
 		return tehsilRepository.save(tehsil);
 	}
 
+
 	@Override
-	public List<Tehsil> getTehsilByDistrict(long districtId) {
-		return tehsilRepository.findAll();
+	public List<TehsilDto> getTehsilByDistrict(long districtId) {
+		
+		return  tehsilRepository.findByDistrictId(districtId)
+	            .stream()
+	            .map(TehsilMapper::toDto)
+	            .toList();
 	}
 
+	
 }
