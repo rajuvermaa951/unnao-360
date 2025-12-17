@@ -10,14 +10,14 @@ import lombok.Data;
 
 @Entity
 @Data
-public class Tehsil {
-	
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+public class School {
+@Id
+@GeneratedValue(strategy=GenerationType.IDENTITY)
 private long id;
-	private String name;
-	  @ManyToOne
-	    @JoinColumn(name = "district_id")
-	    private District district;
-	
+private String name;
+private String type;
+private String level;
+@ManyToOne
+@JoinColumn(name="village_id")
+private Village village;
 }
