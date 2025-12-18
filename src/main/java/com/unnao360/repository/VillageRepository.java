@@ -8,4 +8,6 @@ import com.unnao360.entity.Village;
 
 public interface VillageRepository extends JpaRepository<Village,Long>{
 List<Village> findByBlockId(long blockId);
+List<Village> findByNameContainingIgnoreCase(String name);
+
 }
