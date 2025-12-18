@@ -10,6 +10,7 @@ public interface SchoolRepository extends JpaRepository<School,Long> {
 	List<School> findByVillageId(long villageId);
 	long countByVillageId(long villageId);
 	List<School> findByNameContainingIgnoreCase(String name);
+	long countByVillageId(Long villageId);
 
 
 }

@@ -95,7 +95,7 @@ public class SearchServiceImpl implements SearchService{
 		{
 			SearchResultDto dto=new SearchResultDto();
 			
-			dto.setType("GOVTOFFICE");
+			dto.setType("GOVT_OFFICE");
 			dto.setId(g.getId());
 			dto.setBlockId(g.getVillage().getBlock().getId());
 			dto.setDistrictId(g.getVillage().getBlock().getTehsil().getDistrict().getId());
