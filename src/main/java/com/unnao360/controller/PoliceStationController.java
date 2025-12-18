@@ -16,15 +16,18 @@ import com.unnao360.service.PoliceStationService;
 @RestController
 @RequestMapping("villages/{villageId}/police-stations")
 public class PoliceStationController {
+	
 	private final PoliceStationService policeStationService;
 	PoliceStationController(PoliceStationService policeStationService){
 	this.policeStationService=policeStationService;
 	}
+	
 	@PostMapping
 	public PoliceStation add(@PathVariable long villageId,@RequestBody PoliceStation policeStation)
 	{
 		return policeStationService.createPoliceStation(villageId, policeStation);
 	}
+	
 	@GetMapping
 	public List<PoliceStationDto> getAll(@PathVariable long villageId){
 		return policeStationService.getPoliceStationsByVillage(villageId);
