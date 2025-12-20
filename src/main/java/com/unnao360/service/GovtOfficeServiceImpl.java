@@ -1,7 +1,8 @@
 package com.unnao360.service;
 
-import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.unnao360.dto.GovtOfficeDto;
@@ -28,8 +29,8 @@ public class GovtOfficeServiceImpl implements GovtOfficeService {
 		return govtOfficeRepository.save(govtOffice);
 	}
 	@Override
-	public List<GovtOfficeDto> getGovtOfficeByVillageId(long villageId) {
-		return govtOfficeRepository.findByVillageId(villageId).stream().map(GovtOfficeMapper::toDto).toList();
+	public Page<GovtOfficeDto> getGovtOfficeByVillageId(long villageId,Pageable pageable) {
+		return govtOfficeRepository.findByVillageId(villageId,pageable).map(GovtOfficeMapper::toDto);
 	}
 
 }

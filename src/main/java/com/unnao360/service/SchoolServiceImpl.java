@@ -1,7 +1,8 @@
 package com.unnao360.service;
 
-import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.unnao360.dto.SchoolDto;
@@ -30,8 +31,8 @@ public SchoolServiceImpl(SchoolRepository schoolRepository,
 	}
 
 	@Override
-	public List<SchoolDto> getSchoolsByVillage(long villageId) {
-		return schoolRepository.findByVillageId(villageId).stream().map(SchoolMapper::toDto).toList();
+	public Page<SchoolDto> getSchoolsByVillage(long villageId,Pageable pageable) {
+		return schoolRepository.findByVillageId(villageId,pageable).map(SchoolMapper::toDto);
 	}
 
 }

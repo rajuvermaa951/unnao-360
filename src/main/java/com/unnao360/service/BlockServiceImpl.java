@@ -1,7 +1,8 @@
 package com.unnao360.service;
 
-import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.unnao360.dto.BlockDto;
@@ -29,11 +30,10 @@ public class BlockServiceImpl implements BlockService {
 	}
 
 	@Override
-	public List<BlockDto> getBlocksByTehsil(long tehsilId) {
-		return blockRepository.findByTehsilId(tehsilId)
-				.stream()
+	public Page<BlockDto> getBlocksByTehsil(long tehsilId,Pageable pageable) {
+		return blockRepository.findByTehsilId(tehsilId, pageable)				
 				.map(BlockMapper::toDto)
-				.toList();
+				;
 	}
 	
 	

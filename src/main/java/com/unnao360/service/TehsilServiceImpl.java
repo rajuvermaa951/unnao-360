@@ -1,7 +1,8 @@
 package com.unnao360.service;
 
-import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.unnao360.dto.TehsilDto;
@@ -32,12 +33,10 @@ public class TehsilServiceImpl implements TehsilService {
 
 
 	@Override
-	public List<TehsilDto> getTehsilByDistrict(long districtId) {
+	public Page<TehsilDto> getTehsilByDistrict(long districtId,Pageable pageable) {
 		
-		return  tehsilRepository.findByDistrictId(districtId)
-	            .stream()
-	            .map(TehsilMapper::toDto)
-	            .toList();
+		return  tehsilRepository.findByDistrictId(districtId,pageable)
+	            .map(TehsilMapper::toDto);
 	}
 
 	

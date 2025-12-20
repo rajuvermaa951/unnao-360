@@ -1,7 +1,8 @@
 package com.unnao360.service;
 
-import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.unnao360.dto.VillageDto;
@@ -28,9 +29,13 @@ public VillageServiceImpl(VillageRepository villageRepository,
 		return villageRepository.save(village);
 	}
 
+
+	
 	@Override
-	public List<VillageDto> getVillageByBlockId(long blockId) {
-		return villageRepository.findByBlockId(blockId).stream().map(VillageMapper::toDto).toList();
+	public Page<VillageDto> getVillagesByBlockId(Long blockId, Pageable pageable) {
+		  return villageRepository.findByBlockId(blockId, pageable)
+		            .map(VillageMapper::toDto);
 	}
+
 
 }
