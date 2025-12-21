@@ -1,17 +1,19 @@
-# unnao-360
+# Unnao 360
 Smart District Information System for Unnao
 
 Unnao 360 is a smart district information platform
-focused on providing complete, verified, and structured
-information about Unnao district.
+designed to provide complete, verified, and structured
+information about Unnao district in one place.
 
 ## Status
-🚧 Initial setup
+🚀 Active development (Backend stable, Frontend in progress)
 
 ## Tech Stack
-- Angular
-- Spring Boot
-- MySQL
+- Angular (Frontend)
+- Spring Boot (Backend)
+- MySQL (Database)
 
 ## Vision
-To become the digital identity of Unnao district.
+To build the digital identity of Unnao district by
+connecting citizens, services, and local institutions
+through a single trusted platform.
