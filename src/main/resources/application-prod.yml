@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: ${PORT:8080}
   
 spring: 
   datasource:
@@ -11,9 +11,16 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
-
+  
+  security:
+    user:
+      name: ${USERNAME}
+      password: ${SECURITY_PASSWORD}
     
 jwt: 
   key: ${JWT_KEY}
   expiration: ${JWT_EXPIRATION}
+
+      - 
+    
   
