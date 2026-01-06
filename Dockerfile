@@ -2,17 +2,15 @@
 FROM maven:3.9.9-eclipse-temurin-17 AS build
 WORKDIR /app
 
-# Copy pom.xml and download dependencies first (cache optimization)
+# Copy pom and download dependencies
 COPY pom.xml .
-COPY mvnw .
-COPY .mvn .mvn
-RUN ./mvnw dependency:go-offline
+RUN mvn dependency:go-offline
 
 # Copy source code
 COPY src src
 
 # Build jar (skip tests)
-RUN ./mvnw clean package -DskipTests
+RUN mvn clean package -DskipTests
 
 
 # ---------- STAGE 2: Run ----------
