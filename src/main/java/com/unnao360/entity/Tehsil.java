@@ -12,9 +12,10 @@ import lombok.Data;
 @Data
 public class Tehsil {
 	
-	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Id
 private long id;
+	
 	private String name;
 	  @ManyToOne
 	    @JoinColumn(name = "district_id")

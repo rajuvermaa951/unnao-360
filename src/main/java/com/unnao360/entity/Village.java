@@ -15,6 +15,7 @@ public class Village {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long id;
 	private String name;
+	private String type;
 	private long population;
 	@ManyToOne
 	@JoinColumn(name="block_id")

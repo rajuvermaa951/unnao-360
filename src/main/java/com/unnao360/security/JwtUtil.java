@@ -11,20 +11,21 @@ import java.util.Date;
 @Component
 public class JwtUtil {
 
-    // ✅ 32+ chars (256 bits) — SAFE
-    private static final String SECRET =
-            "unnao360-super-secure-secret-key-2025";
+    private final JwtProperties jwtProperties;
+    private final SecretKey key;
 
-    private static final long EXPIRATION = 1000 * 60 * 60 * 5; // 5 hours
-
-    // ✅ Generate key properly
-    private final SecretKey key = Keys.hmacShaKeyFor(SECRET.getBytes());
+    public JwtUtil(JwtProperties jwtProperties) {
+        this.jwtProperties = jwtProperties;
+        this.key = Keys.hmacShaKeyFor(jwtProperties.getKey().getBytes());
+    }
 
     public String generateToken(String username) {
         return Jwts.builder()
                 .setSubject(username)
                 .setIssuedAt(new Date())
-                .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION))
+                .setExpiration(
+                        new Date(System.currentTimeMillis() + jwtProperties.getExpiration())
+                )
                 .signWith(key, SignatureAlgorithm.HS256)
                 .compact();
     }

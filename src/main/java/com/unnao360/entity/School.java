@@ -15,8 +15,13 @@ public class School {
 @GeneratedValue(strategy=GenerationType.IDENTITY)
 private long id;
 private String name;
+private String classFrom;
+private String address;
+private int classTo;
 private String type;
+private String pinCode;
 private String level;
+private String village_name;
 @ManyToOne
 @JoinColumn(name="village_id")
 private Village village;
