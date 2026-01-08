@@ -17,22 +17,48 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
         http
-            .cors(cors -> cors.configurationSource(corsConfigurationSource())) // ✅ FIX
+            .cors(cors -> cors.configurationSource(corsConfigurationSource()))
             .csrf(csrf -> csrf.disable())
+
             .authorizeHttpRequests(auth -> auth
+
+                .requestMatchers(
+                    "/",
+                    "/index.html",
+                    "/favicon.ico",
+                    "/assets/**",
+                    "/*.js",
+                    "/*.css",
+                    "/*.map",
+                    "/*.woff",
+                    "/*.woff2",
+                    "/*.ttf",
+                    "/*.svg",
+                    "/*.png",
+                    "/*.jpg"
+                ).permitAll()
+
                 .requestMatchers("/auth/**").permitAll()
-                .anyRequest().permitAll()
+
+                .requestMatchers("/api/**").permitAll()
+
+                .anyRequest().authenticated()
             );
 
         return http.build();
     }
 
+   
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
 
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowedOrigins(List.of("http://localhost:4200"));
-        config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+
+        config.setAllowedOrigins(List.of("http://localhost:8000","http://localhost:4200"));
+
+        config.setAllowedMethods(List.of(
+                "GET", "POST", "PUT", "DELETE", "OPTIONS"
+        ));
         config.setAllowedHeaders(List.of("*"));
         config.setAllowCredentials(true);
 
