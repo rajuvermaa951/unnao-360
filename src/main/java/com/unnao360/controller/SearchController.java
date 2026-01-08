@@ -11,7 +11,7 @@ import com.unnao360.dto.SearchResultDto;
 import com.unnao360.service.SearchService;
 
 @RestController
-@RequestMapping("/search")
+@RequestMapping("/api/search")
 public class SearchController {
 	private final SearchService searchService;
 	public SearchController(SearchService searchService)

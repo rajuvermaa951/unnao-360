@@ -11,7 +11,7 @@ import com.unnao360.entity.Tehsil;
 import com.unnao360.service.TehsilService;
 
 @RestController
-@RequestMapping("/districts/{districtId}/tehsils")
+@RequestMapping("/api/districts/{districtId}/tehsils")
 public class TehsilController {
 
     private final TehsilService tehsilService;

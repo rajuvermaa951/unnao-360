@@ -18,7 +18,7 @@ import com.unnao360.entity.School;
 import com.unnao360.service.SchoolService;
 
 @RestController
-@RequestMapping("villages/{villageId}/schools")
+@RequestMapping("/api/villages/{villageId}/schools")
 public class SchoolController {
 	private final SchoolService schoolService;
 	public SchoolController(SchoolService schoolService)

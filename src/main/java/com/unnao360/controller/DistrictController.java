@@ -13,7 +13,7 @@ import com.unnao360.entity.District;
 import com.unnao360.service.DistrictService;
 
 @RestController
-@RequestMapping("/districts")
+@RequestMapping("/api/districts")
 public class DistrictController {
 	
 	private final  DistrictService districtService;

@@ -18,7 +18,7 @@ import com.unnao360.entity.Village;
 import com.unnao360.service.VillageService;
 
 @RestController
-@RequestMapping("blocks/{blockId}/villages")
+@RequestMapping("/api/blocks/{blockId}/villages")
 public class VillageController {
 	private final VillageService villageService;
 	public VillageController(VillageService villageService)

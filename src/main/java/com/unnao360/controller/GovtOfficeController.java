@@ -18,7 +18,7 @@ import com.unnao360.entity.GovtOffice;
 import com.unnao360.service.GovtOfficeService;
 
 @RestController
-@RequestMapping("villages/{villageId}/govt-offices")
+@RequestMapping("/api/villages/{villageId}/govt-offices")
 public class GovtOfficeController {
 
 	private final GovtOfficeService govtOfficeService;

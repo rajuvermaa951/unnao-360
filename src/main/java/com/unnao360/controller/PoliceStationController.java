@@ -18,7 +18,7 @@ import com.unnao360.entity.PoliceStation;
 import com.unnao360.service.PoliceStationService;
 
 @RestController
-@RequestMapping("villages/{villageId}/police-stations")
+@RequestMapping("/api/villages/{villageId}/police-stations")
 public class PoliceStationController {
 	
 	private final PoliceStationService policeStationService;

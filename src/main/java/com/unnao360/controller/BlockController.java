@@ -18,7 +18,7 @@ import com.unnao360.entity.Block;
 import com.unnao360.service.BlockService;
 
 @RestController
-@RequestMapping("tehsils/{tehsilId}/blocks")
+@RequestMapping("/api/tehsils/{tehsilId}/blocks")
 public class BlockController {
 
 	private final BlockService blockService;

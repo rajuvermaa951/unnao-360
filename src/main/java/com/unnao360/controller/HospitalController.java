@@ -18,7 +18,7 @@ import com.unnao360.entity.Hospital;
 import com.unnao360.service.HospitalService;
 
 @RestController
-@RequestMapping("villages/{villageId}/hospitals")
+@RequestMapping("/api/villages/{villageId}/hospitals")
 public class HospitalController {
 	private final HospitalService hospitalService;
 	public HospitalController(HospitalService hospitalService)
